@@ -530,4 +530,311 @@ a:hover {
 
 .footer-legal {
   max-width: 42rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .footer-legal {
+    align-items: flex-end;
+    text-align: right;
+  }
+}
+
+.footer-legal-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1rem;
+  font-size: 0.8125rem;
+}
+
+@media (min-width: 768px) {
+  .footer-legal-nav {
+    justify-content: flex-end;
+  }
+}
+
+.legal-trigger {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: rgb(167 243 208);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.legal-trigger:hover {
+  color: #fff;
+}
+
+.footer-legal-sep {
+  color: rgb(100 116 139);
+  user-select: none;
+}
+
+/* Ventanas legales (mismo documento) */
+.legal-dialog {
+  max-width: 40rem;
+  width: calc(100vw - 2rem);
+  max-height: min(88vh, 42rem);
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-2xl);
+  background: #fff;
+  color: var(--brand-ink);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.35);
+}
+
+.legal-dialog::backdrop {
+  background: rgb(15 23 42 / 0.48);
+  backdrop-filter: blur(5px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .legal-dialog {
+    animation: legal-dialog-in 0.2s ease-out;
+  }
+
+  @keyframes legal-dialog-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.5rem) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+}
+
+.legal-dialog__panel {
+  display: flex;
+  flex-direction: column;
+  max-height: min(88vh, 42rem);
+}
+
+.legal-dialog__header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1rem 0.75rem;
+  border-bottom: 1px solid rgb(226 232 240);
+}
+
+.legal-dialog__header h2 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.35;
+  padding-top: 0.125rem;
+}
+
+.legal-dialog__close {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-xl);
+  background: rgb(241 245 249);
+  color: var(--slate-600);
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.legal-dialog__close:hover {
+  background: rgb(226 232 240);
+  color: var(--brand-ink);
+}
+
+.legal-dialog__close:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+
+.legal-dialog__body {
+  overflow-y: auto;
+  padding: 1rem 1rem 1.25rem;
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: var(--slate-600);
+  -webkit-overflow-scrolling: touch;
+}
+
+.legal-dialog__body h3 {
+  margin: 1.25rem 0 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--brand-ink);
+}
+
+.legal-dialog__body h3:first-child {
+  margin-top: 0;
+}
+
+.legal-dialog__body p {
+  margin: 0 0 0.65rem;
+}
+
+.legal-dialog__body ul {
+  margin: 0 0 0.65rem;
+  padding-left: 1.25rem;
+}
+
+.legal-dialog__body li {
+  margin-bottom: 0.25rem;
+}
+
+.legal-disclaimer {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgb(226 232 240);
+  font-size: 0.6875rem;
+  color: var(--slate-500);
+}
+
+body.legal-scroll-lock {
+  overflow: hidden;
+}
+
+/* Modal de términos (landing estática): utilidades alineadas al panel Laravel sin Tailwind global */
+.legal-dialog.legal-dialog--terms,
+.legal-dialog.legal-dialog--privacy {
+  max-width: min(42rem, calc(100vw - 2rem));
+  max-height: min(92vh, 48rem);
+}
+
+.legal-dialog__body--long {
+  padding-top: 0.75rem;
+}
+
+.legal-dialog__body--long .text-sm {
+  font-size: 0.875rem;
+}
+.legal-dialog__body--long .text-base {
+  font-size: 1rem;
+}
+.legal-dialog__body--long .text-xl {
+  font-size: 1.25rem;
+}
+@media (min-width: 640px) {
+  .legal-dialog__body--long .sm\:text-2xl {
+    font-size: 1.5rem;
+  }
+}
+.legal-dialog__body--long .font-bold {
+  font-weight: 700;
+}
+.legal-dialog__body--long .font-semibold {
+  font-weight: 600;
+}
+.legal-dialog__body--long .font-medium {
+  font-weight: 500;
+}
+.legal-dialog__body--long .leading-tight {
+  line-height: 1.25;
+}
+.legal-dialog__body--long .leading-relaxed {
+  line-height: 1.625;
+}
+.legal-dialog__body--long .tracking-tight {
+  letter-spacing: -0.025em;
+}
+.legal-dialog__body--long .text-slate-700 {
+  color: #334155;
+}
+.legal-dialog__body--long .text-slate-600 {
+  color: #475569;
+}
+.legal-dialog__body--long .text-slate-500 {
+  color: #64748b;
+}
+.legal-dialog__body--long .text-brand-ink {
+  color: var(--brand-ink);
+}
+.legal-dialog__body--long .text-brand-primary-darker {
+  color: var(--brand-primary-darker);
+}
+.legal-dialog__body--long a.text-brand-primary-darker:hover {
+  color: var(--brand-primary);
+  text-decoration: underline;
+}
+.legal-dialog__body--long .mb-10 {
+  margin-bottom: 2.5rem;
+}
+.legal-dialog__body--long .pb-6 {
+  padding-bottom: 1.5rem;
+}
+.legal-dialog__body--long .border-b {
+  border-bottom-width: 1px;
+}
+.legal-dialog__body--long .border-slate-200 {
+  border-color: #e2e8f0;
+}
+.legal-dialog__body--long .space-y-2 > * + * {
+  margin-top: 0.5rem;
+}
+.legal-dialog__body--long .space-y-3 > * + * {
+  margin-top: 0.75rem;
+}
+.legal-dialog__body--long .space-y-4 > * + * {
+  margin-top: 1rem;
+}
+.legal-dialog__body--long .space-y-10 > * + * {
+  margin-top: 2.5rem;
+}
+.legal-dialog__body--long .mt-2 {
+  margin-top: 0.5rem;
+}
+.legal-dialog__body--long .pl-0 {
+  padding-left: 0;
+}
+@media (min-width: 640px) {
+  .legal-dialog__body--long .sm\:pl-1 {
+    padding-left: 0.25rem;
+  }
+}
+.legal-dialog__body--long .pl-6 {
+  padding-left: 1.5rem;
+}
+.legal-dialog__body--long .inline {
+  display: inline;
+}
+.legal-dialog__body--long dl.space-y-4 > div {
+  margin-top: 1rem;
+}
+.legal-dialog__body--long dl.space-y-4 > div:first-child {
+  margin-top: 0;
+}
+.legal-dialog__body--long ol[type="a"] {
+  list-style-type: lower-alpha;
+}
+.legal-dialog__body--long ol[type="a"] li {
+  padding-left: 0.25rem;
+}
+.legal-dialog__body--long .break-all {
+  word-break: break-all;
+}
+.legal-dialog__body--long .max-w-none {
+  max-width: none;
+}
+
+.legal-dialog__body--long .list-disc {
+  list-style-type: disc;
+}
+.legal-dialog__body--long .pl-5 {
+  padding-left: 1.25rem;
 }
