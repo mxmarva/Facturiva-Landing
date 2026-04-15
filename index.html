@@ -34,6 +34,28 @@
     />
 
     <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+      @media (min-width: 1200px) {
+        #planes .plans-grid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 1rem;
+          align-items: stretch;
+        }
+        #planes .plan-card {
+          min-width: 0;
+          height: 100%;
+        }
+        #planes .plan-price {
+          font-size: 2rem;
+          line-height: 1.1;
+          overflow-wrap: anywhere;
+        }
+        #planes .plan-meta li {
+          overflow-wrap: anywhere;
+        }
+      }
+    </style>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -52,13 +74,19 @@
           {
             "@type": "Offer",
             "name": "Plan Pro",
-            "price": "499.00",
+            "price": "349.00",
+            "priceCurrency": "MXN"
+          },
+          {
+            "@type": "Offer",
+            "name": "Plan Scale",
+            "price": "699.00",
             "priceCurrency": "MXN"
           },
           {
             "@type": "Offer",
             "name": "Plan Empresarial",
-            "price": "999.00",
+            "priceSpecification": "Bajo cotización",
             "priceCurrency": "MXN"
           }
         ]
@@ -182,48 +210,68 @@
         <div class="container">
           <h2 id="planes-title" class="section-title">Planes</h2>
           <p class="section-intro">
-            Precios de referencia en MXN (mensual), alineados con los planes del sistema. Podrás contratar o cambiar de
-            plan dentro de la aplicación.
+            Planes mensuales en MXN con timbres incluidos, timbre extra según plan y acceso a API en planes seleccionados.
           </p>
           <div class="plans-grid">
             <article class="plan-card">
               <p class="plan-code">basic</p>
               <h3>Básico</h3>
-              <p class="plan-price">$199.00<span>/mes</span></p>
-              <p class="plan-credits">50 créditos incluidos</p>
+              <p class="plan-price">MXN $199.00<span>/mes</span></p>
+              <p class="plan-credits">30 timbres incluidos</p>
               <ul class="plan-meta">
-                <li><strong>API pública:</strong> No</li>
-                <li><strong>Usuarios:</strong> hasta 3</li>
-                <li><strong>RFC / organizaciones:</strong> 1</li>
-                <li><strong>Crédito extra (aprox.):</strong> $9.00</li>
+                <li><strong>Timbre extra:</strong> MXN $1.10</li>
+                <li><strong>API:</strong> No</li>
+                <li><strong>Usuarios:</strong> 2</li>
+                <li><strong>RFC / org.:</strong> 1</li>
+                <li><strong>Soporte:</strong> Básico</li>
               </ul>
               <a class="btn btn-outline btn-block" href="https://app.facturiva.com/register">Crear cuenta</a>
             </article>
+
             <article class="plan-card featured">
               <p class="plan-code">pro</p>
               <h3>Pro</h3>
-              <p class="plan-price">$499.00<span>/mes</span></p>
-              <p class="plan-credits">250 créditos incluidos</p>
+              <p class="plan-price">MXN $349.00<span>/mes</span></p>
+              <p class="plan-credits">100 timbres incluidos</p>
               <ul class="plan-meta">
-                <li><strong>API pública:</strong> Sí</li>
-                <li><strong>Usuarios:</strong> hasta 10</li>
-                <li><strong>RFC / organizaciones:</strong> 2</li>
-                <li><strong>Crédito extra (aprox.):</strong> $7.00</li>
+                <li><strong>Timbre extra:</strong> MXN $0.95</li>
+                <li><strong>API:</strong> Sí</li>
+                <li><strong>Usuarios:</strong> 5</li>
+                <li><strong>RFC / org.:</strong> 3</li>
+                <li><strong>Soporte:</strong> Estándar</li>
               </ul>
               <a class="btn btn-primary btn-block" href="https://app.facturiva.com/register">Crear cuenta</a>
             </article>
+
+            <article class="plan-card">
+              <p class="plan-code">scale</p>
+              <h3>Scale</h3>
+              <p class="plan-price">MXN $699.00<span>/mes</span></p>
+              <p class="plan-credits">500 timbres incluidos</p>
+              <ul class="plan-meta">
+                <li><strong>Timbre extra:</strong> MXN $0.80</li>
+                <li><strong>API:</strong> Sí</li>
+                <li><strong>Usuarios:</strong> 15</li>
+                <li><strong>RFC / org.:</strong> 10</li>
+                <li><strong>Soporte:</strong> Premium</li>
+              </ul>
+              <a class="btn btn-outline btn-block" href="https://app.facturiva.com/register">Crear cuenta</a>
+            </article>
+
             <article class="plan-card">
               <p class="plan-code">enterprise</p>
               <h3>Empresarial</h3>
-              <p class="plan-price">$999.00<span>/mes</span></p>
-              <p class="plan-credits">1000 créditos incluidos</p>
+              <p class="plan-price">Bajo cotización</p>
+              <p class="plan-credits">Timbres personalizados</p>
               <ul class="plan-meta">
-                <li><strong>API pública:</strong> Sí</li>
-                <li><strong>Usuarios:</strong> ilimitados</li>
-                <li><strong>RFC / organizaciones:</strong> ilimitados</li>
-                <li><strong>Crédito extra (aprox.):</strong> $5.00</li>
+                <li><strong>Modalidad:</strong> Solo cotización</li>
+                <li><strong>Timbre extra:</strong> Según volumen</li>
+                <li><strong>API:</strong> Sí</li>
+                <li><strong>Usuarios:</strong> Personalizado</li>
+                <li><strong>RFC / org.:</strong> Personalizado</li>
+                <li><strong>Soporte:</strong> Prioritario</li>
               </ul>
-              <a class="btn btn-outline btn-block" href="https://app.facturiva.com/register">Crear cuenta</a>
+              <a class="btn btn-outline btn-block" href="https://app.facturiva.com/register">Solicitar información</a>
             </article>
           </div>
         </div>
