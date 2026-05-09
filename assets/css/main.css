@@ -578,6 +578,61 @@ a:hover {
   user-select: none;
 }
 
+/* Insignias de tiendas (misma altura en fila, mismo ancho en columna) */
+.footer-stores {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.875rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgb(51 65 85 / 0.55);
+}
+
+.footer-store-link {
+  display: block;
+  flex-shrink: 0;
+  line-height: 0;
+  text-decoration: none;
+  width: min(12.75rem, 82vw);
+}
+
+.footer-store-link:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 3px;
+  border-radius: 0.25rem;
+}
+
+.footer-store-link:hover {
+  opacity: 0.92;
+}
+
+.footer-store-link img {
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 560px) {
+  .footer-stores {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem 1.25rem;
+  }
+
+  .footer-store-link {
+    width: auto;
+    height: 2.875rem;
+  }
+
+  .footer-store-link img {
+    width: auto;
+    height: 100%;
+    max-width: none;
+  }
+}
+
 /* Ventanas legales (mismo documento) */
 .legal-dialog {
   max-width: 40rem;
